@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { PageWrapper } from "@/components/page-wrapper";
 
 export default function Home() {
   return (
-    <>
-    homepage
-    </>
+    <PageWrapper headerTitle="Home">
+      test
+    </PageWrapper>
   );
 }

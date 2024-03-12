@@ -31,7 +31,7 @@ export default function RootLayout({
         <Sidebar />
         <div className="w-full">
           <Navbar />
-          <div className="bg-gray-50 w-full h-full p-16">
+          <div className="bg-gray-50 w-full h-full p-8">
           {children}
           </div>
         </div>
