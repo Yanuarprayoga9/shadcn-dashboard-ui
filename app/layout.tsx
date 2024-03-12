@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Sidebar from "@/components/sidebar";
 import { Navbar } from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,13 +29,18 @@ export default function RootLayout({
           }
         )}
       >
-        <Sidebar />
-        <div className="w-full">
-          <Navbar />
-          <div className="bg-gray-50 w-full h-full p-8">
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Sidebar />
+          <div className="w-full">
+            <Navbar />
+            <div className="bg-gray-50 w-full h-full p-8">{children}</div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

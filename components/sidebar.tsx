@@ -6,6 +6,7 @@ import {
   Archive,
   ArchiveX,
   ChevronRight,
+  Currency,
   File,
   Inbox,
   MessagesSquare,
@@ -33,7 +34,7 @@ const Sidebar = () => {
 
   if (!mounted) return null;
   return (
-    <div className={cn("relative min-w-[3/12]   border-r  pb-10 pt-16",
+    <div className={cn("relative min-w-[3/12] min-h-screen  border-r  pb-10 pt-16",
     {"w-3/12" : isOpen === false},
     {"hidden":mobile && !isOpen},
     {"fixed z-10 w-6/12 bg-white":mobile && isOpen},
@@ -60,37 +61,43 @@ const Sidebar = () => {
         isCollapsed={isOpen}
         links={[
           {
-            title: "Inbox",
-            label: "128",
+            title: "Home",
+            href: "",
+            label: "",
             icon: Inbox,
             variant: "default",
           },
           {
-            title: "Drafts",
-            label: "9",
-            icon: File,
+            title: "Payments",
+            href: "payments",
+            label: "",
+            icon: Currency,
             variant: "ghost",
           },
           {
             title: "Sent",
+            href: "Sent",
             label: "",
             icon: Send,
             variant: "ghost",
           },
           {
             title: "Junk",
+            href: "Junk",
             label: "23",
             icon: ArchiveX,
             variant: "ghost",
           },
           {
             title: "Trash",
+            href: "Trash",
             label: "",
             icon: Trash2,
             variant: "ghost",
           },
           {
             title: "Archive",
+            href: "Archive",
             label: "",
             icon: Archive,
             variant: "ghost",

@@ -6,6 +6,7 @@ import { MenuIcon, ShoppingCart } from "lucide-react";
 import useSidebarStore from "@/hooks/use-sidebar";
 import { Button } from "./ui/button";
 import { useWindowWidth } from "@react-hook/window-size";
+import { ModeToggle } from "./theme-toggle";
 
 export const Navbar = () => {
   const action = useSidebarStore((state) => state.action);
@@ -29,9 +30,10 @@ export const Navbar = () => {
             <MenuIcon />
           </Button>
         ) : null}
-        
-        {!isOpen && !mobile && mounted ? 
-        <MainNav className="mx-6" /> : (
+
+        {!isOpen && !mobile && mounted ? (
+          <MainNav className="mx-6" />
+        ) : (
           <div className="absolute  right-24">
             <h1 className="text-4xl font-serif italic  flex gap-x-2 ">
               <ShoppingCart className="text-4xl mt-2 " /> Yanuar
@@ -40,6 +42,7 @@ export const Navbar = () => {
         )}
         <div className="ml-auto flex items-center space-x-4">
           {/* <Search /> */}
+          <ModeToggle />
           <UserNav />
         </div>
       </div>

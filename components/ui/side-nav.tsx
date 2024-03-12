@@ -13,11 +13,13 @@ import {
 } from "@/components/ui/tooltip";
 import { useWindowWidth } from "@react-hook/window-size";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   isCollapsed: boolean;
   links: {
     title: string;
+    href: string;
     label?: string;
     icon: LucideIcon;
     variant: "default" | "ghost";
@@ -26,6 +28,8 @@ interface NavProps {
 
 export function SideNav({ links, isCollapsed }: NavProps) {
   console.log({ isCollapsed });
+  const pathname = usePathname()
+  
 
   const useWidth = useWindowWidth();
   const mobile = useWidth < 768;
@@ -43,7 +47,7 @@ export function SideNav({ links, isCollapsed }: NavProps) {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href={link.href}
                     className={cn(
                       buttonVariants({ variant: link.variant, size: "icon" }),
                       "h-9 w-9",
@@ -71,7 +75,7 @@ export function SideNav({ links, isCollapsed }: NavProps) {
           ) : (
             <Link
               key={index}
-              href="#"
+              href={link.href}
               className={cn(
                 buttonVariants({ variant: link.variant, size: "sm" }),
                 link.variant === "default" &&
